@@ -9,7 +9,7 @@ Just clone the repo and flash it to the firmware.
 
 ## Build instructions
 
-###Step 1 - Download and Install/Unpack Arduino
+### Step 1 - Download and Install/Unpack Arduino
 
 Download and install Arduino; suggested and verified version is the 1.6.8 from:
 https://www.arduino.cc/en/Main/OldSoftwareReleases#previous
