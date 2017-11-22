@@ -150,9 +150,11 @@ CHANGE FILAMENT SETTINGS
 #define FILAMENTCHANGE_XPOS 211
 #define FILAMENTCHANGE_YPOS 0
 #define FILAMENTCHANGE_ZADD 2
+//This is for unloading your filament. FIRSTRETRACT is slow. (why is it only -2 lol? makes sense kinda since the whole retract is a fast process) FINALRETRACT is longer
 #define FILAMENTCHANGE_FIRSTRETRACT -2
 #define FILAMENTCHANGE_FINALRETRACT -80
 
+//This is for loading your filament FIRSTFEED is the fast initial pull in. FINALFEED is for the slower filament extrusion
 #define FILAMENTCHANGE_FIRSTFEED 70
 #define FILAMENTCHANGE_FINALFEED 50
 #define FILAMENTCHANGE_RECFEED 5
