@@ -38,6 +38,8 @@ Copy the contents of the ArduinoAddons/Arduino_1.6.x directory from the download
 Download the bootloader image from:
 https://raw.githubusercontent.com/arduino/Arduino/master/hardware/arduino/avr/bootloaders/stk500v2/stk500boot_v2_mega2560.hex
 
+There is actually no difference between the hex file in the hardware / library support and the one linked above. Just copy over the stk500boot_v2_mega2560.hex from the stk500v2 folder into the bootloaders folder
+
 Save a copy of it on each of the following directories:
 
     Arduino/hardware/arduino/avr/bootloaders/stk500v2/
@@ -46,6 +48,8 @@ Save a copy of it on each of the following directories:
 Double-check that the file has the .hex extension and not .txt.
 
 ### Step 4 - Prepare the Arduino Firmware (For RAMBo13a boards)
+
+####THIS ALREADY HAS BEEN DONE FOR THE FIRMWARE ON RAPID'S GITHUB
 
 Copy the file Prusa-Firmware/Firmware/variants/1_75mm_MK2-RAMBo13a-E3Dv6full.h file (In the Variants folder)
 
@@ -84,8 +88,4 @@ You will find the exported binary in the Prusa-Firmware/Firmware directory:
 
 Upload the new firmare to the printer using the standard firmware update tool included in original Prusa firmware:
 http://manual.prusa3d.com/Guide/Upgrading+firmware/66#_ga=1.48414886.1605935719.1473440900
-
-
-
-
 
