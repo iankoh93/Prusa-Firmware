@@ -36,7 +36,7 @@ AXIS SETTINGS
 #ifdef SNMM
 #define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,140}
 #else
-#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,161.3}
+#define DEFAULT_AXIS_STEPS_PER_UNIT   {100,100,3200/8,175.0} //175.0 Seems to be the average E_steps (PLEASE Calibrate and save in EEPROMS)
 #endif
 
 
@@ -50,7 +50,8 @@ const bool Z_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 #define MANUAL_Y_HOME_POS -2.2
 #define MANUAL_Z_HOME_POS 0.15
 
-// Travel limits after homing
+// Travel limits after homing (Please change this if you try and upgrade and modifiy printer
+// Z_MAX_POS is differnet for cl0ned MK2 due to raised leg mounts (190)
 #define X_MAX_POS 250
 #define X_MIN_POS 0
 #define Y_MAX_POS 210
@@ -77,7 +78,7 @@ const bool Z_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 #define DEFAULT_RETRACT_ACCELERATION  1500   // X, Y, Z and E max acceleration in mm/s^2 for retracts
 
 
-#define MANUAL_FEEDRATE {3000, 3000, 1000, 100}   // set the speeds for manual moves (mm/min)
+#define MANUAL_FEEDRATE {3000, 3000, 1000, 200}   // set the speeds for manual moves (mm/min)
 
 #define Z_AXIS_ALWAYS_ON 1
 
@@ -108,19 +109,20 @@ EXTRUDER SETTINGS
 #define  DEFAULT_Kd 73.76
 #else
 // Define PID constants for extruder
+// Run M303 C10 S200 with Fan at 100% 5mm from the bed to calibrate properly
 #define  DEFAULT_Kp 40.925
 #define  DEFAULT_Ki 4.875
 #define  DEFAULT_Kd 86.085
 #endif
 
 // Extrude mintemp
-#define EXTRUDE_MINTEMP 130
+#define EXTRUDE_MINTEMP 170
 
 // Extruder cooling fans
 #define EXTRUDER_0_AUTO_FAN_PIN   8
 #define EXTRUDER_1_AUTO_FAN_PIN   -1
 #define EXTRUDER_2_AUTO_FAN_PIN   -1
-#define EXTRUDER_AUTO_FAN_TEMPERATURE 50
+#define EXTRUDER_AUTO_FAN_TEMPERATURE 70 //Hotend thermal creep fan shutoff temperature
 #define EXTRUDER_AUTO_FAN_SPEED   255  // == full speed
 
 
@@ -150,13 +152,15 @@ CHANGE FILAMENT SETTINGS
 #define FILAMENTCHANGE_XPOS 211
 #define FILAMENTCHANGE_YPOS 0
 #define FILAMENTCHANGE_ZADD 2
-//This is for unloading your filament. FIRSTRETRACT is slow. (why is it only -2 lol? makes sense kinda since the whole retract is a fast process) FINALRETRACT is longer
+//This is for unloading your filament. FIRSTRETRACT is slow. 
+//(The -2 makes sense kinda since the whole retract is a fast process) FINALRETRACT is longer
 #define FILAMENTCHANGE_FIRSTRETRACT -2
 #define FILAMENTCHANGE_FINALRETRACT -80
 
-//This is for loading your filament FIRSTFEED is the fast initial pull in. FINALFEED is for the slower filament extrusion
+//This is for loading your filament FIRSTFEED is the fast initial pull in. 
+//FINALFEED is for the slower filament extrusion
 #define FILAMENTCHANGE_FIRSTFEED 70
-#define FILAMENTCHANGE_FINALFEED 50
+#define FILAMENTCHANGE_FINALFEED 60
 #define FILAMENTCHANGE_RECFEED 5
 
 #define FILAMENTCHANGE_XYFEED 50
@@ -180,11 +184,11 @@ ADDITIONAL FEATURES SETTINGS
 #endif
 
 // temperature runaway
-#define TEMP_RUNAWAY_BED_HYSTERESIS 5
-#define TEMP_RUNAWAY_BED_TIMEOUT 360
+#define TEMP_RUNAWAY_BED_HYSTERESIS 5 // If deviation is more than 5 degrees shutoff
+#define TEMP_RUNAWAY_BED_TIMEOUT 360 // wait deviated 6 mins till shutoff
 
-#define TEMP_RUNAWAY_EXTRUDER_HYSTERESIS 15
-#define TEMP_RUNAWAY_EXTRUDER_TIMEOUT 45
+#define TEMP_RUNAWAY_EXTRUDER_HYSTERESIS 15 //If deviation is more than 15 degrees shutoff
+#define TEMP_RUNAWAY_EXTRUDER_TIMEOUT 45 //Wait 45secs deviated till shutoff
 
 /*------------------------------------
 MOTOR CURRENT SETTINGS
@@ -269,6 +273,7 @@ BED SETTINGS
 #define  DEFAULT_bedKi 1.60
 #define  DEFAULT_bedKd 73.76
 #else
+//Run M303 E-1 C10 S90 to tune for bed levelling for ABS bed temps
 #define  DEFAULT_bedKp 126.13
 #define  DEFAULT_bedKi 4.30
 #define  DEFAULT_bedKd 924.76
@@ -288,6 +293,7 @@ BED SETTINGS
 PREHEAT SETTINGS
 *------------------------------------*/
 
+//HPB_Temp is for Bed and we disable for easier pre-heats for filament changes
 #define PLA_PREHEAT_HOTEND_TEMP 215
 #define PLA_PREHEAT_HPB_TEMP 0
 #define PLA_PREHEAT_FAN_SPEED 0  
