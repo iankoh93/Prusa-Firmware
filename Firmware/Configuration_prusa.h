@@ -13,7 +13,7 @@ GENERAL SETTINGS
 #define DEVELOPER
 
 // Printer name
-#define CUSTOM_MENDEL_NAME "UBC Rapid Prototyping"
+#define CUSTOM_MENDEL_NAME "Osensa"
 
 // Electronics
 #define MOTHERBOARD BOARD_RAMBO_MINI_1_3
@@ -160,7 +160,7 @@ CHANGE FILAMENT SETTINGS
 //This is for loading your filament FIRSTFEED is the fast initial pull in. 
 //FINALFEED is for the slower filament extrusion
 #define FILAMENTCHANGE_FIRSTFEED 70
-#define FILAMENTCHANGE_FINALFEED 60
+#define FILAMENTCHANGE_FINALFEED 100
 #define FILAMENTCHANGE_RECFEED 5
 
 #define FILAMENTCHANGE_XYFEED 50
@@ -294,7 +294,7 @@ PREHEAT SETTINGS
 *------------------------------------*/
 
 //HPB_Temp is for Bed and we disable for easier pre-heats for filament changes
-#define PLA_PREHEAT_HOTEND_TEMP 215
+#define PLA_PREHEAT_HOTEND_TEMP 200
 #define PLA_PREHEAT_HPB_TEMP 0
 #define PLA_PREHEAT_FAN_SPEED 0  
 
