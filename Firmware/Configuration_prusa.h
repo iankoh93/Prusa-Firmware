@@ -13,7 +13,7 @@ GENERAL SETTINGS
 #define DEVELOPER
 
 // Printer name
-#define CUSTOM_MENDEL_NAME "Osensa"
+#define CUSTOM_MENDEL_NAME "Prusa i3 MK2 cl0ned"
 
 // Electronics
 #define MOTHERBOARD BOARD_RAMBO_MINI_1_3
@@ -56,7 +56,7 @@ const bool Z_MIN_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 #define X_MIN_POS 0
 #define Y_MAX_POS 210
 #define Y_MIN_POS -2.2
-#define Z_MAX_POS 210
+#define Z_MAX_POS 198 //As the Blue Y ends make the bed higher slightly
 #define Z_MIN_POS 0.15
 
 // Canceled home position
@@ -298,7 +298,7 @@ PREHEAT SETTINGS
 #define PLA_PREHEAT_HPB_TEMP 0
 #define PLA_PREHEAT_FAN_SPEED 0  
 
-#define ABS_PREHEAT_HOTEND_TEMP 255
+#define ABS_PREHEAT_HOTEND_TEMP 240
 #define ABS_PREHEAT_HPB_TEMP 0
 #define ABS_PREHEAT_FAN_SPEED 0 
 
